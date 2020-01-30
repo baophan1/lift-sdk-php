@@ -9,6 +9,7 @@ use Acquia\LiftClient\Manager\DecideManager;
 use Acquia\LiftClient\Manager\DeploySiteManager;
 use Acquia\LiftClient\Manager\GoalManager;
 use Acquia\LiftClient\Manager\RuleManager;
+use Acquia\LiftClient\Manager\SearchManager;
 use Acquia\LiftClient\Manager\SegmentManager;
 use Acquia\LiftClient\Manager\SiteManager;
 use Acquia\LiftClient\Manager\SlotManager;
@@ -21,7 +22,7 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
 use Psr\Http\Message\RequestInterface;
 
-// Lift Endpoints 
+// Lift 4 Endpoints 
 define('API_VERSION', "/v2");
 define('ACCOUNTS_EP', API_VERSION."/accounts");
 define('CAMPAIGNS_EP', API_VERSION."/campaigns");
@@ -223,6 +224,16 @@ class Lift
     public function getRuleManager()
     {
         return new RuleManager($this->authenticatedClient);
+    }
+
+    /**
+     * Get the Search Manager.
+     *
+     * @return \Acquia\LiftClient\Manager\SearchManager
+     */
+    public function getSearchManager()
+    {
+        return new SearchManager($this->authenticatedClient);
     }
 
     /**
