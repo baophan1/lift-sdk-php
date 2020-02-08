@@ -248,7 +248,7 @@ class SiteTest extends TestBase
 
         $requestHeaders = $request->getHeaders();
         $this->assertEquals($requestHeaders['Content-Type'][0], 'application/json');
-        $this->assertTrue($response);
+        $this->assertTrue($response, 'Site Deletion succeeded');
     }
 
     /**

@@ -99,12 +99,7 @@ class SiteManager extends ManagerBase
         $url = SITES_EP."/".$id;
 
         // Push request to API
-        $request = new Request('DELETE', $url);
-        $data = $this->getResponseJson($request);
-
-        if (!isset($data)){
-            return false;
-        }
+        $this->client->delete($url);
 
         return true;
     }
