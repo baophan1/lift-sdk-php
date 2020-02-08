@@ -102,7 +102,7 @@ class SiteManager extends ManagerBase
         $request = new Request('DELETE', $url);
         $data = $this->getResponseJson($request);
 
-        if (isset($data)){
+        if (!isset($data)){
             return false;
         }
 
